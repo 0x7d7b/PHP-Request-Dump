@@ -14,6 +14,7 @@
   </style>
   </head>
   <body>
+    <p>
     <table>
       <?php
         $request = $_SERVER['REQUEST_METHOD'] . ' ' . (isset($_SERVER['HTTPS']) ? 'https' : 'http') .'://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . ' ' . $_SERVER['SERVER_PROTOCOL'];
@@ -26,5 +27,16 @@
         }
       ?>
     </table>
+    </p>
+    <p>
+      <?php
+          $body = file_get_contents('php://input');
+          if (preg_match('/[[:^print:]]/', $body)) {
+            echo "&lt;&lt;binary&gt;&gt;\n";
+          } else {
+            echo "$body\n";
+          }
+      ?>
+    </p>
   </body>
 </html>
