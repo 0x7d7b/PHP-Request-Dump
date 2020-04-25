@@ -6,11 +6,10 @@
   foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
   }
-  echo "\n\n";
   $body = file_get_contents('php://input');
   if (preg_match('/[[:^print:]]/', $body)) {
-    echo "<<binary>>";
-  } else {
-    echo "$body";
-   }
+    echo "\n<<binary>>";
+  } else if (!empty($body)) {
+    echo "\n$body";
+  }
 ?>
