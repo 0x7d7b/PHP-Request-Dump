@@ -3,7 +3,7 @@
 A simple ```index.php``` file printing out request details, like:
 
 ```
-Request	                    GET http://request.0x7d7b.net/?blarp=boo HTTP/1.1
+Request	                    GET http://0x7d7b.net/lab/request.php?blarp=boo HTTP/1.1
 
 Connection                  close
 Accept-Encoding	            gzip, deflate
